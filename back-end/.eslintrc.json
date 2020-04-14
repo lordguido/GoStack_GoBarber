@@ -22,13 +22,9 @@
     "@typescript-eslint",
     "prettier"
   ],
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
   "rules": {
     "prettier/prettier": "error",
+    "class-methods-use-this": "off",
     "import/extensions": [
       "error",
       "igonorePackages",
@@ -36,5 +32,10 @@
         "ts": "never"
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

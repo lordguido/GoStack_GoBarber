@@ -28,7 +28,7 @@
     "@typescrip-eslint/camelcase": "off",
     "import/extensions": [
       "error",
-      "igonorePackages",
+      "ignorePackages",
       {
         "ts": "never"
       }

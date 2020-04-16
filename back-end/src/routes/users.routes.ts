@@ -1,9 +1,15 @@
 import { Router } from 'express';
+import multer from 'multer';
+import uploadConfig from '../config/upload'
 
 const usersRouter = Router();
+const upload = multer(uploadConfig);
 
 //Importação de Usuario
 import CreateUserService from '../services/CreateUserService';
+
+//Importando Middlewares
+import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 
 
 //Criação de Agendamento
@@ -29,5 +35,14 @@ usersRouter.post('/', async (request, response) => {
       .json({ error: err.message });
   }
 })
+
+usersRouter.patch(
+  '/avatar',
+  ensureAuthenticated,
+  upload.single('avatar'),
+  async (request, response) => {
+    return response.json({ ok: true })
+  },
+);
 
 export default usersRouter;
